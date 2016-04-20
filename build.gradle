@@ -1,0 +1,52 @@
+buildscript {
+    repositories {
+//        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+
+    dependencies {
+        classpath 'fr.putnami.gwt:putnami-gradle-plugin:0.2.0'
+        classpath "net.ltgt.gradle:gradle-apt-plugin:0.5"
+    }
+}
+
+ext {
+    daggerVersion = "2.3"
+    gwtVersion = "2.7.0"
+    guavaVersion = "19.0"
+}
+
+def genResources = new File(project.buildDir, "generated/source/apt/main")
+
+apply plugin: 'java'
+apply plugin: 'fr.putnami.gwt'
+apply plugin: "net.ltgt.apt"
+
+repositories {
+//    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    compile 'javax.inject:javax.inject:1'
+    compile "com.google.guava:guava-gwt:${project.guavaVersion}"
+    compile "com.google.gwt:gwt-user:$project.gwtVersion"
+    compile "com.google.dagger:dagger-gwt:${project.daggerVersion}"
+    compileOnly "com.google.dagger:dagger:${project.daggerVersion}"
+    apt "com.google.guava:guava:${project.guavaVersion}"
+    apt "com.google.dagger:dagger-compiler:${project.daggerVersion}"
+}
+
+putnami {
+    module 'test.Main'
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDir genResources
+        }
+    }
+}
