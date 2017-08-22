@@ -1,20 +1,20 @@
 buildscript {
     repositories {
-//        mavenCentral()
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
+        mavenCentral()
     }
 
     dependencies {
-        classpath 'fr.putnami.gwt:putnami-gradle-plugin:0.2.0'
         classpath "net.ltgt.gradle:gradle-apt-plugin:0.5"
     }
 }
 
+plugins {
+    id "fr.putnami.gwt" version "0.4.0"
+}
+
 ext {
-    daggerVersion = "2.3"
-    gwtVersion    = "2.8.0-beta1"
+    daggerVersion = "2.11"
+    gwtVersion    = "2.8.1"
     guavaVersion  = "19.0"
 }
 
@@ -26,8 +26,7 @@ apply plugin: "net.ltgt.apt"
 apply plugin: 'idea'
 
 repositories {
-//    mavenCentral()
-    jcenter()
+    mavenCentral()
 }
 
 sourceCompatibility = "1.8"

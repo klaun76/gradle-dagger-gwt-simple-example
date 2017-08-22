@@ -1,12 +1,10 @@
 package test.client.coffee;
 
-import java.util.logging.Logger;
-
 class ElectricHeater implements Heater {
   boolean heating;
 
   @Override public void on() {
-    Logger.getLogger("Test").fine("~ ~ ~ heating ~ ~ ~");
+    CoffeeApp.testoutput("~ ~ ~ heating ~ ~ ~");
     this.heating = true;
   }
 

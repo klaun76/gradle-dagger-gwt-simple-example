@@ -6,7 +6,8 @@ This repository was created as an example how to build gwt project with dagger d
 
 ## Status
 
-Dagger 2.3 version is working. Problem was with dependencies on com.google.guava, and specially order of dependencies. Many thanks to Thomas.
+Dagger 2.11 version is working. Problem was with dependencies on com.google.guava, and specially order of dependencies. Many thanks to Thomas.
+Output moved from console to page
 
 [repo]: https://github.com/google/dagger
 

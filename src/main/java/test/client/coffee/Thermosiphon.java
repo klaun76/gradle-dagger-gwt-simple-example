@@ -1,7 +1,6 @@
 package test.client.coffee;
 
 import javax.inject.Inject;
-import java.util.logging.Logger;
 
 class Thermosiphon implements Pump {
   private final Heater heater;
@@ -13,7 +12,7 @@ class Thermosiphon implements Pump {
 
   @Override public void pump() {
     if (heater.isHot()) {
-      Logger.getLogger("Test").fine("=> => pumping => =>");
+      CoffeeApp.testoutput("=> => pumping => =>");
     }
   }
 }
